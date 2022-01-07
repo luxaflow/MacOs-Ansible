@@ -1,0 +1,12 @@
+---
+- name: Install Homebrew Casks
+  community.general.homebrew_cask:
+    name: "visual-studio-code"
+    state: present
+    accept_external_apps: True
+
+- name: "VSCode Extensions Present"
+  ansible.builtin.include_tasks:
+    file: add-extension.yml 
+  when: not latest_extension_version
+  loop: "{{ vscode_extensions }}"

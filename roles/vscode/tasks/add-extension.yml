@@ -1,0 +1,12 @@
+---
+- name: "Check Extensions is Present"
+  ansible.builtin.command:
+    cmd: code --list-extensions
+  register: extension_exists
+
+- name: "Install VSCode Extensions"
+  ansible.builtin.command:
+    cmd: code --install-extension '{{ item }}' --force
+  when: >
+    not item in extension_exists.stdout or
+    latest_extension_version == true 

@@ -1,0 +1,31 @@
+username: lucaswolfe
+
+homebrew_taps:
+  - homebrew/cask-drivers
+
+homebrew_packages:
+  - python3
+  - terraform
+  - packer 
+  - mas
+  - thefuck
+  - bitwarden-cli
+  - azure-cli
+  - pre-commit
+  - tflint
+  - terraform-docs
+ 
+homebrew_casks:
+  - alfred 
+  - postman
+  - stack
+  - virtualbox
+  - vagrant
+  - unclack
+  - spotify
+  - whatsapp
+  - notion
+  - microsoft-remote-desktop
+  - docker
+  - powershell
+  - gopro-webcam

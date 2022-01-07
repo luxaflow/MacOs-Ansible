@@ -1,0 +1,13 @@
+---
+- name: "Get Current Dockitems"
+  ansible.builtin.command:
+    cmd: dockutil --list
+  register: current_dockitems
+  changed_when: not current_dockitems == ""
+  
+- name: Clear all Dockitems
+  ansible.builtin.command:
+    cmd: "dockutil --remove '{{item.split('\t')[0]}}'"
+  when: not current_dockitems == ""
+  changed_when: not current_dockitems == ""
+  loop: "{{current_dockitems.stdout_lines }}"

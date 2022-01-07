@@ -1,0 +1,7 @@
+---
+- name: "Clone PowerLevel10K Repo"
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest: ~/powerlevel10k
+    single_branch: yes
+    version: master

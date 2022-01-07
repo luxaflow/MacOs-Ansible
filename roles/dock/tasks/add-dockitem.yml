@@ -1,0 +1,11 @@
+---
+- name: Add Dock Items
+  ansible.builtin.command:
+    cmd: "dockutil --add '{{ item.path }}' --no-restart{{ ' -vvv' if dock_debug }}" 
+  register: dockitem_added
+  changed_when: not 'already exists in dock' in dockitem_added.stdout
+
+- name: Debug Add Dock Items
+  ansible.builtin.debug:
+    msg: "{{ dockitem_added.stdout }}"
+  when: "{{ dock_debug }}"

@@ -1,0 +1,14 @@
+---
+- name: "Clear All Dock Items"
+  ansible.builtin.include_tasks:
+    file: clear-dockitems.yml
+
+- name: Add Dock Items
+  ansible.builtin.include_tasks:
+    file: add-dockitem.yml
+  loop: "{{ dockitems_persist }}"
+
+- name: Organize Dock Items
+  ansible.builtin.include_tasks:
+    file: move-dockitem.yml
+  loop: "{{ dockitems_persist }}"  

@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  connection: local
+
+  gather_facts: false
+
+  vars_files:
+    - config/homebrew.yml
+    - config/dock.yml
+    - config/dotfiles.yml
+    - config/mas.yml
+    - config/vscode.yml
+
+  roles:
+    - homebrew
+    - mas
+    - vscode
+    - powerlevel10k
+    - dotfiles
+    - dock

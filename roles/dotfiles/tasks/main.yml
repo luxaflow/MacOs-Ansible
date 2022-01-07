@@ -1,0 +1,17 @@
+---
+- name: "Clone Dotfiles from git"
+  ansible.builtin.git:
+    repo: git@github.com:luxaflow/dotfiles.git
+    dest: ~/tmp/
+
+- name: "Move DotFiles" 
+  ansible.builtin.copy:
+    src: ~/tmp/{{ item }}
+    dest: ~/
+    force: yes
+  loop: "{{ dotfiles }}"
+
+- name: "Cleanup dotfiles repo"
+  ansible.builtin.file:
+    path: ~/tmp
+    state: absent

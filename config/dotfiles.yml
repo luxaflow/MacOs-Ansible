@@ -1,0 +1,4 @@
+---
+dotfiles:
+  - .p10k.zsh
+  - .zshrc
