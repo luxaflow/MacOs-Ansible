@@ -29,3 +29,4 @@ homebrew_casks:
   - docker
   - powershell
   - gopro-webcam
+  - powershell
